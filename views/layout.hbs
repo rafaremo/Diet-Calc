@@ -2,12 +2,49 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Logo</a>
+        <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          {{#if user}}
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/diet-list">Lista de Dietas</a></li>
+          <li><a href="/logout">LogOut</a></li>
+          {{else}}
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">SignUp</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      {{#if user}}
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/diet-list">Lista de Dietas</a></li>
+      <li><a href="/logout">LogOut</a></li>
+      {{else}}
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">SignUp</a></li>
+      {{/if}}
+    </ul>
 
     {{{body}}}
 
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src='/javascripts/script.js'></script>
   </body>
 </html>

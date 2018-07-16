@@ -15,6 +15,7 @@ const userSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'Dieta'
   },
+},{
   timestamps:{
     createdAt:'created_at',
     updatedAt: 'updated_at'
