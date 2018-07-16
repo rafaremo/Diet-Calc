@@ -12,7 +12,7 @@ const path         = require('path');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/diet-calc', {useMongoClient: true})
+  .connect(process.env.DB, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
