@@ -1,4 +1,7 @@
-foods:[
+const mongoose = require('mongoose');
+const Food = require('../models/Food');
+
+let foods = [
   {
     name: 'Huevo entero',
     serving:{
@@ -284,3 +287,9 @@ foods:[
     fat: 1,
   },
 ]
+
+Food.create(foods, (err)=>{
+  if(err){throw(err)}
+  console.log(`Created ${foods.length} foods`)
+  mongoose.connection.close();
+});
