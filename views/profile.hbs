@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col s12 m7">
+
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://www.cmcautomobiles.co.tz/cmc/wp-content/uploads/2017/06/index.png">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{username}}</p>
+        </div>
+        <div class="card-action">
+          <p>{{email}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+
+<ul class="collection with-header">
+  <li class="collection-header"><h4>Your diet lists</h4></li>
+    {{#each dietas}}
+        <li class="collection-item"><div>{{this}}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    {{/each}}
+</ul>
+</div>
