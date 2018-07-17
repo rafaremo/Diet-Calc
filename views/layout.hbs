@@ -28,6 +28,14 @@
 
     <ul class="sidenav" id="mobile-demo">
       {{#if user}}
+      <li><div class="user-view">
+        <div class="background">
+          <img src="images/fruit.jpg">
+        </div>
+        <a href="/prodile"><img class="circle" src="{{user.photoURL}}"></a>
+        <a href="/profile"><span class="white-text name">{{user.username}}</span></a>
+        <a href="/profile"><span class="white-text email">{{user.email}}</span></a>
+      </div></li>
       <li><a href="/profile">Profile</a></li>
       <li><a href="/diet-list">Lista de Dietas</a></li>
       <li><a href="/logout">LogOut</a></li>

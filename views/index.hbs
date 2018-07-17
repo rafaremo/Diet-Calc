@@ -1,4 +1,48 @@
 <div class="container">
-  <h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
+  <h1>Calcula tu Dieta</h1>
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Llena los siguientes datos:</span>
+          <form action="/result" method="POST" class="row">
+            <div class="input-field col s12">
+              <input placeholder="20" id="age" name="age" type="number" class="validate" required>
+              <label for="age">Edad (años)</label>
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="70" id="weight" name="weight" type="number" class="validate" required>
+              <label for="weight">Peso (kg)</label>
+            </div>
+            <div class="input-field col s12">
+              <input placeholder="170" id="height" name="height" type="number" class="validate" required>
+              <label for="height">Altura (cm)</label>
+            </div>
+            <div class="input-field col s12">
+              <select name="sex" required>
+                <option disabled selected><-- Elige una opción --></option>
+                <option value="M">Mujer</option>
+                <option value="H">Hombre</option>
+              </select>
+              <label>Sexo</label>
+            </div>
+            <div class="input-field col s12">
+              <select name="activity" required>
+                <option disabled selected><-- Elige una opción --></option>
+                <option value="1.2">sedentary (little to no exercise)</option>
+                <option value="1.375">lightly active (light exercise 1-3 days per week)</option>
+                <option value="1.55">moderately active (moderate exercise 3-5 days per week)</option>
+                <option value="1.725">very active (hard exercise 6-7 days per week)</option>
+                <option value="1.9">extra active (very hard exercise/training or physical job)</option>
+              </select>
+              <label>Nivel de Actividad</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

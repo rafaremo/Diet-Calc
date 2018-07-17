@@ -15,6 +15,10 @@ const userSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'Dieta'
   },
+  photoURL: {
+    type: String,
+    default: 'https://www.tenforums.com/geek/gars/images/2/types/thumb__ser.png'
+  }
 },{
   timestamps:{
     createdAt:'created_at',
