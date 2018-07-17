@@ -1,3 +1,22 @@
-{{#each solution}}
-  <p>Key: {{@key}} Value = {{this}}</p>
-{{/each}}
+<div class="container">
+  <form action="/save-result" method="POST">
+    <h2>Resultados de tu Dieta</h2>
+    {{#each solution}}
+      {{#resultForm @key}}
+        <input type="text" value="{{this}}" name="food[{{@key}}]">
+      {{/resultForm}}
+    {{/each}}
+    <input type="number" name="bmr" value="{{datosInit.BMR}}">
+    <input type="number" name="gP" value="{{datosInit.gP}}">
+    <input type="number" name="gC" value="{{datosInit.gC}}">
+    <input type="number" name="gG" value="{{datosInit.gG}}">
+    <input type="number" name="edad" value="{{datosInit.age}}">
+    <input type="number" name="peso" value="{{datosInit.weight}}">
+    <input type="number" name="altura" value="{{datosInit.height}}">
+    <input type="number" name="actividad" value="{{datosInit.activity}}">
+    <input type="text" name="sexo" value="{{datosInit.sex}}">
+    {{#if user}}
+      <button type="submit" class="btn">Guardar Dieta</button>
+    {{/if}}
+  </form>
+</div>

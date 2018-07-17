@@ -9,15 +9,23 @@ const dietaSchema = new Schema({
   },
   usuario: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'user'
   },
-  comidas: [{
-    food: {
-      type: Schema.Types.ObjectId,
-      ref: 'Food'
-    },
-    quantity: Number
-  }],
+  comidas: [
+    {
+      quantity: Number,
+      food: {
+        type: Schema.Types.ObjectId,
+        ref: 'Food'
+      }
+    }
+  ],
+  dietInfo: {
+    bmr: Number,
+    gP: Number,
+    gC: Number,
+    gG: Number
+  },
   inputInfo: {
     edad: Number,
     peso: Number,
