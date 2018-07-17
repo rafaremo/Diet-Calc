@@ -11,10 +11,12 @@ const userSchema = new Schema({
     type:String,
     required:true,
   },
-  dietas:{
-    type:Schema.Types.ObjectId,
-    ref:'Dieta'
-  },
+  dietas:[
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Dieta'
+    }
+  ],
   photoURL: {
     type: String,
     default: 'https://www.tenforums.com/geek/gars/images/2/types/thumb__ser.png'

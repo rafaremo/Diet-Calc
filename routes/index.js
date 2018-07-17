@@ -49,17 +49,19 @@ router.post('/save-result', (req,res,next)=>{
           quantity: req.body.food[key],
           food: comida[0]._id
         }
-        return Dieta.findByIdAndUpdate(dieta._id, {$push: {comidas:objeto}}, {new: true})
+        return Dieta.findByIdAndUpdate(dieta._id, {$push: {comidas:objeto}}, {new: true});
       })
       .then((newDieta)=>{
-
       })
       .catch(e=>{
         res.send(e);
         reject('error');
       });
     }
-    res.redirect('/results/' + dieta._id);
+    User.findOneAndUpdate({_id:req.user._id}, {$push: {dietas:dieta._id}})
+    .then(user=>{
+      res.redirect('/results/' + dieta._id);
+    });
   })
   .catch(err=>res.send(err));
 });

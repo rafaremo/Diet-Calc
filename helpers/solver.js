@@ -8,14 +8,15 @@ function solucionar() {
     req.body.gC = (req.body.BMR*0.55)/4;
 
     let  model = {
-      "optimize": "cal",
+      "optimize": "protein",
       "opType": "max",
       "constraints": {
-        "protein": {"equal": req.body.gP},
-        "carbs": {"equal": req.body.gC},
+        "cal": {"equal": req.body.BMR},
+        "carbs": {"min": req.body.gC},
         "fat": {"max": req.body.gG}
       },
-      "variables": req.foods
+      "variables": req.foods,
+      "ints": {"Licuado de proteina (Optimum nutrition)": 1,"Licuado de proteina hydrolizada (optimum nutrition)": 1, "Caseina": 1}
     };
 
     req.solucion = solver.Solve(model);
