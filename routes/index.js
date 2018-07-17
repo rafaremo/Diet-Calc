@@ -69,7 +69,8 @@ router.post('/save-result', (req,res,next)=>{
 router.get('/profile/:id', (req,res)=>{
   User.findById(req.params.id)
   .then(user=>{
-  res.render('profile', user)})
+    res.render('profile', user)
+  })
   .catch(err=>res.send(err));
 });
 
