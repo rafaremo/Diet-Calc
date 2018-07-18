@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="col s12 m7">
+    <h1>Dieta {{name}} de {{usuario.username}}</h1>
+
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <h4>
+        Tu meta calorica: 
+          <div class="right-align">{{dietInfo.bmr}}</div>
+        </h4>
+      </li>
+      <li class="collection-header">
+        <h4>
+        Distribución de tus macros:
+        </h4>
+      </li>
+      <li>
+        <h5 style="padding:0 20px">
+        Proteína: 
+          <div class="right-align">{{dietInfo.gP}} gramos</div>
+        </h5>
+        <h5 style="padding:0 20px">
+        Carbohidratos: 
+          <div class="right-align">{{dietInfo.gC}} gramos</div>
+        </h5>
+        <h5 style="padding:0 20px">
+        Grasa: 
+          <div class="right-align">{{dietInfo.gG}} gramos</div>
+        </h5>
+      </li>
+      {{#each comidas}}
+        <li class="collection-item">
+          {{this.food.name}}
+          <div class="right-align">{{this.quantity}} {{this.food.serving.unit}}(s)</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

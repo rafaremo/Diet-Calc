@@ -68,21 +68,22 @@ router.post('/save-result', (req,res,next)=>{
 
 router.get('/profile/:id', (req,res)=>{
   User.findById(req.params.id)
+  .populate('dietas')
   .then(user=>{
     res.render('profile', user)
   })
   .catch(err=>res.send(err));
 });
 
-router.get('/results/:id',(req,res)=>{
+router.get('/profile/results/:id',(req,res)=>{
   Dieta.findById(req.params.id)
     .populate('usuario')
     .populate({
       path: 'comidas.food'
     })
     .then(user=>{
-      res.send(user);
-      //res.render('diet-result', user)
+      console.log(user);
+      res.render('diet-result', user)
     })
     .catch(err=>res.send(err));
 })
