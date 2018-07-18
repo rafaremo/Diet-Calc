@@ -43,8 +43,6 @@ router.post('/signup', (req,res,next)=>{
         let confirmationCode = bcrypt.hashSync(user.username, salt);
         let confirmationCodeArr = confirmationCode.split("/");
         confirmationCode = confirmationCodeArr.join('');
-        console.log(user._id);
-        console.log(confirmationCode);
         return User.findByIdAndUpdate(user._id, {confirmationCode}, {new:true})
       })
       .then(newUser=>{

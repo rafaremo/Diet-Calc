@@ -86,7 +86,7 @@ router.post('/save-result', isAuth, isValidated, (req,res,next)=>{
     }
     User.findOneAndUpdate({_id:req.user._id}, {$push: {dietas:dieta._id}})
     .then(user=>{
-      res.redirect('/results/' + dieta._id);
+      res.redirect('/profile/results/' + dieta._id);
     });
   })
   .catch(err=>res.send(err));

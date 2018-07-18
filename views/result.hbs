@@ -1,22 +1,63 @@
-<div class="container">
-  <form action="/save-result" method="POST">
+
+  <div class="container">
     <h2>Resultados de tu Dieta</h2>
-    {{#each solution}}
-      {{#resultForm @key}}
-        <input type="hidden" value="{{this}}" name="food[{{@key}}]">
-      {{/resultForm}}
-    {{/each}}
-    <input type="hidden" name="bmr" value="{{datosInit.BMR}}">
-    <input type="hidden" name="gP" value="{{datosInit.gP}}">
-    <input type="hidden" name="gC" value="{{datosInit.gC}}">
-    <input type="hidden" name="gG" value="{{datosInit.gG}}">
-    <input type="hidden" name="edad" value="{{datosInit.age}}">
-    <input type="hidden" name="peso" value="{{datosInit.weight}}">
-    <input type="hidden" name="altura" value="{{datosInit.height}}">
-    <input type="hidden" name="actividad" value="{{datosInit.activity}}">
-    <input type="hidden" name="sexo" value="{{datosInit.sex}}">
-    {{#if user}}
-      <button type="submit" class="btn">Guardar Dieta</button>
-    {{/if}}
-  </form>
-</div>
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <h4>
+        Tu meta calorica: 
+          <span class="right-align">{{datosInit.BMR}}</span>
+        </h4>
+      </li>
+      <li class="collection-header">
+        <h4>
+        Distribución de tus macros:
+        </h4>
+      </li>
+      <li>
+        <h5 style="padding:0 20px">
+        Proteína: 
+          <span class="right-align">{{datosInit.gP}} gramos</span>
+        </h5>
+        <h5 style="padding:0 20px">
+        Carbohidratos: 
+          <span class="right-align">{{datosInit.gC}} gramos</span>
+        </h5>
+        <h5 style="padding:0 20px">
+        Grasa: 
+          <span class="right-align">{{datosInit.gG}} gramos</span>
+        </h5>
+      </li>
+      <li class="collection-header" style="border-top:1px solid lightgray">
+        <h4>
+        Alimentos diarios:
+        </h4>
+      </li>
+
+      {{#each comidasDietaCompletas}}
+        <li class="collection-item">
+            {{name}}
+          <div class="right-align">{{resultado}} {{serving.unit}}(s)</div>
+        </li>
+      {{/each}}
+    </ul>
+    <form action="/save-result" method="POST">
+      {{#each solution}}
+        {{#resultForm @key}}
+          <input type="hidden" value="{{this}}" name="food[{{@key}}]">
+        {{/resultForm}}
+      {{/each}}
+      <input type="hidden" name="bmr" value="{{datosInit.BMR}}">
+      <input type="hidden" name="gP" value="{{datosInit.gP}}">
+      <input type="hidden" name="gC" value="{{datosInit.gC}}">
+      <input type="hidden" name="gG" value="{{datosInit.gG}}">
+      <input type="hidden" name="edad" value="{{datosInit.age}}">
+      <input type="hidden" name="peso" value="{{datosInit.weight}}">
+      <input type="hidden" name="altura" value="{{datosInit.height}}">
+      <input type="hidden" name="actividad" value="{{datosInit.activity}}">
+      <input type="hidden" name="sexo" value="{{datosInit.sex}}">
+      {{#if user}}
+        <button type="submit" class="btn">Guardar Dieta</button>
+      {{/if}}
+    </form>
+  </div>
+
