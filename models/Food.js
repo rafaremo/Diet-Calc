@@ -14,7 +14,9 @@ const foodSchema = new Schema({
   cal: Number,
   protein: Number,
   carbs: Number,
-  fat: Number
+  fat: Number,
+  entero: Boolean,
+  expect: Number
 },{
   timestamps:{
     createdAt:'created_at',

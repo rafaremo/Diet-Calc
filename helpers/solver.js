@@ -6,18 +6,21 @@ function solucionar() {
     req.body.gP = (req.body.BMR*0.25)/4;
     req.body.gG = (req.body.BMR*0.20)/9;
     req.body.gC = (req.body.BMR*0.55)/4;
+    console.log(req.body);
 
     let  model = {
-      "optimize": "protein",
+      "optimize": "cal",
       "opType": "max",
       "constraints": {
-        "cal": {"equal": req.body.BMR},
-        "carbs": {"min": req.body.gC},
-        "fat": {"max": req.body.gG}
+        "protein": {"equal": req.body.gP},
+        "carbs": {"equal": req.body.gC },
+        "fat": {"equal": req.body.gG}
       },
       "variables": req.foods,
-      "ints": {"Licuado de proteina (Optimum nutrition)": 1,"Licuado de proteina hydrolizada (optimum nutrition)": 1, "Caseina": 1}
+      "expects": req.expects,
+      //"ints": req.enteros
     };
+    console.log(model);
 
     req.solucion = solver.Solve(model);
     next();

@@ -13,7 +13,7 @@ const passport     = require('./helpers/passport');
 const MongoStore   = require('connect-mongo')(session);
 
 hbs.registerHelper('resultForm', function(conditional, options) {
-  if(conditional != 'feasible' && conditional != 'result' && conditional != 'bounded') {
+  if(conditional != 'bounded') {
     return options.fn(this);
   }
 });
