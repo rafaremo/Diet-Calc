@@ -20,7 +20,12 @@ const userSchema = new Schema({
   photoURL: {
     type: String,
     default: 'https://www.tenforums.com/geek/gars/images/2/types/thumb__ser.png'
-  }
+  },
+  active: {
+    type: Boolean,
+    default: false
+  },
+  confirmationCode: String
 },{
   timestamps:{
     createdAt:'created_at',

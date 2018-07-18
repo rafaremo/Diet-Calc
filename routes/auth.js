@@ -2,6 +2,10 @@ const express = require('express');
 const router  = express.Router();
 const User    = require('../models/User')
 const passport = require('passport');
+// Bcrypt to encrypt confirmation code
+const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 
 //middlewares de autenticacion
 function isAuth(req,res,next){
@@ -34,16 +38,42 @@ router.post('/signup', (req,res,next)=>{
     res.render('auth/signup', error);
   } else {
     User.register(req.body, req.body.password) 
-      .then(user=>res.redirect('/login'))
-      .catch(err=>res.send(err))
+      .then(user=>{
+        let salt = bcrypt.genSaltSync(bcryptSalt);
+        let confirmationCode = bcrypt.hashSync(user.username, salt);
+        let confirmationCodeArr = confirmationCode.split("/");
+        confirmationCode = confirmationCodeArr.join('');
+        console.log(user._id);
+        console.log(confirmationCode);
+        return User.findByIdAndUpdate(user._id, {confirmationCode}, {new:true})
+      })
+      .then(newUser=>{
+        sendWelcomeMail(newUser);
+        res.render('verifica');
+      })
+      .catch(err=>{
+        res.redirect('/');
+        console.log(err);
+      });
   }
 });
 
-router.get('/login', isLoggedIn, (req,res)=>{
-  res.render('auth/login')
+router.get("/confirm/:confirmCode", (req, res, next)=>{
+  const confirmCode = req.params.confirmCode;
+  User.findOneAndUpdate({confirmationCode: confirmCode}, {$set:{active:true}}, {new: true})
+    .then(update=>{
+      res.render('confirmation', update);
+    })
+    .catch(e=>next(e));
 });
 
-router.post('/login', passport.authenticate('local'), (req,res,next)=>{
+router.get('/login', isLoggedIn, (req,res)=>{
+  res.render('auth/login');
+});
+
+router.post('/login', passport.authenticate('local', {
+  failureRedirect: '/login'
+}), (req,res,next)=>{
   req.app.locals.user = req.user;
   res.redirect('/')
 });
