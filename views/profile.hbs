@@ -1,18 +1,21 @@
 <div class="container">
   <div class="col s12 m7">
-
     <div class="card horizontal">
+      <form action="/update-profile/{{_id}}" method="POST" enctype="multipart/form-data" style="display:none;" id="form">
+        <input type="file" name="profilePic" id="file" onchange="submitForm()">
+      </form>
       <div class="card-image">
-        <img src="{{photoURL}}">
+        <img src="{{photoURL}}" style="max-height: 300px;" id="fotoClick">
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>{{username}}</p>
+          <h3>Usuario: {{username}}</h3>
         </div>
         <div class="card-action">
-          <p>{{email}}</p>
+          <p>Correo: {{email}}</p>
         </div>
       </div>
+
     </div>
   </div>
             
@@ -24,3 +27,14 @@
     {{/each}}
 </ul>
 </div>
+
+<script>
+  document.getElementById('fotoClick').addEventListener('click', function(){
+     document.getElementById('file').click();
+  });
+  
+
+  function submitForm(){
+    document.getElementById('form').submit();
+  }
+</script>
