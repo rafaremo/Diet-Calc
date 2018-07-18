@@ -118,7 +118,7 @@ router.get('/profile/results/:id', isAuth, isValidated, (req,res)=>{
     .catch(err=>res.send(err));
 });
 
-router.post('/update-profile/:id', uploadCloud.single('profilePic'), (req,res)=>{
+router.post('/update-profile/:id', isAuth, isValidated, uploadCloud.single('profilePic'), (req,res)=>{
   req.body.photoURL = req.file.url;
   User.findByIdAndUpdate(req.user._id, req.body, {new: true})
   .then(newUser=>{
