@@ -17,7 +17,6 @@ function solucionar() {
         "fat": {"equal": req.body.gG}
       },
       "variables": req.foods,
-      "expects": req.expects,
       //"ints": req.enteros
     };
     console.log(model);

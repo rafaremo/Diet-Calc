@@ -16,7 +16,16 @@ router.post('/result', foods(), solver(), (req,res,next)=>{
   let objeto = {
     solution: req.solucion,
     dietFoods: req.rawFoods,
-    datosInit: req.body
+    datosInit: req.body,
+    comidasDietaCompletas: []
+  }
+  for (let comida in objeto.solution){
+    objeto.dietFoods.forEach((comidaCompleta)=>{
+      if (comidaCompleta.name === comida){
+        comidaCompleta.resultado = objeto.solution[comida];
+        objeto.comidasDietaCompletas.push(comidaCompleta);
+      }
+    });
   }
   res.render('result', objeto);
 });
@@ -82,7 +91,6 @@ router.get('/profile/results/:id',(req,res)=>{
       path: 'comidas.food'
     })
     .then(user=>{
-      console.log(user);
       res.render('diet-result', user)
     })
     .catch(err=>res.send(err));

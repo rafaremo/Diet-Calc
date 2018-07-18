@@ -1,6 +1,51 @@
-<div class="container">
-  <form action="/save-result" method="POST">
+
+  <div class="container">
     <h2>Resultados de tu Dieta</h2>
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <h4>
+        Tu meta calorica: 
+          <div class="right-align">{{datosInit.BMR}}</div>
+        </h4>
+      </li>
+      <li class="collection-header">
+        <h4>
+        Distribución de tus macros:
+        </h4>
+      </li>
+      <li>
+        <h5 style="padding:0 20px">
+        Proteína: 
+          <div class="right-align">{{datosInit.gP}} gramos</div>
+        </h5>
+        <h5 style="padding:0 20px">
+        Carbohidratos: 
+          <div class="right-align">{{datosInit.gC}} gramos</div>
+        </h5>
+        <h5 style="padding:0 20px">
+        Grasa: 
+          <div class="right-align">{{datosInit.gG}} gramos</div>
+        </h5>
+      </li>
+      <li class="collection-header" style="border-top:1px solid lightgray">
+        <h4>
+        Alimentos diarios:
+        </h4>
+      </li>
+
+      {{#each comidasDietaCompletas}}
+        <li class="collection-item">
+            {{name}}
+          <div class="right-align">{{resultado}} {{serving.unit}}(s)</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+
+
+  <form action="/save-result" method="POST">
     {{#each solution}}
       {{#resultForm @key}}
         <input type="hidden" value="{{this}}" name="food[{{@key}}]">
@@ -19,4 +64,4 @@
       <button type="submit" class="btn">Guardar Dieta</button>
     {{/if}}
   </form>
-</div>
+
