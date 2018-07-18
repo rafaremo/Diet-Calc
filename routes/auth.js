@@ -32,10 +32,11 @@ router.post('/signup', (req,res,next)=>{
       body: req.body
     }
     res.render('auth/signup', error);
+  } else {
+    User.register(req.body, req.body.password) 
+      .then(user=>res.redirect('/login'))
+      .catch(err=>res.send(err))
   }
-  User.register(req.body, req.body.password) 
-  .then(user=>res.redirect('/login'))
-  .catch(err=>res.send(err))
 });
 
 router.get('/login', isLoggedIn, (req,res)=>{

@@ -3,20 +3,18 @@
     <h2>Resultados de tu Dieta</h2>
     {{#each solution}}
       {{#resultForm @key}}
-        <label for="food[{{@key}}]">{{@key}}</label>
-        <input type="text" value="{{this}}" name="food[{{@key}}]">
+        <input type="hidden" value="{{this}}" name="food[{{@key}}]">
       {{/resultForm}}
     {{/each}}
-    <h4>Valores Iniciales</h4>
-    <input type="number" name="bmr" value="{{datosInit.BMR}}">
-    <input type="number" name="gP" value="{{datosInit.gP}}">
-    <input type="number" name="gC" value="{{datosInit.gC}}">
-    <input type="number" name="gG" value="{{datosInit.gG}}">
-    <input type="number" name="edad" value="{{datosInit.age}}">
-    <input type="number" name="peso" value="{{datosInit.weight}}">
-    <input type="number" name="altura" value="{{datosInit.height}}">
-    <input type="number" name="actividad" value="{{datosInit.activity}}">
-    <input type="text" name="sexo" value="{{datosInit.sex}}">
+    <input type="hidden" name="bmr" value="{{datosInit.BMR}}">
+    <input type="hidden" name="gP" value="{{datosInit.gP}}">
+    <input type="hidden" name="gC" value="{{datosInit.gC}}">
+    <input type="hidden" name="gG" value="{{datosInit.gG}}">
+    <input type="hidden" name="edad" value="{{datosInit.age}}">
+    <input type="hidden" name="peso" value="{{datosInit.weight}}">
+    <input type="hidden" name="altura" value="{{datosInit.height}}">
+    <input type="hidden" name="actividad" value="{{datosInit.activity}}">
+    <input type="hidden" name="sexo" value="{{datosInit.sex}}">
     {{#if user}}
       <button type="submit" class="btn">Guardar Dieta</button>
     {{/if}}
