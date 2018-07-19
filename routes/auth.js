@@ -51,7 +51,7 @@ router.post('/signup', (req,res,next)=>{
         res.render('verifica');
       })
       .catch(err=>{
-        res.redirect('/');
+        res.send(err);
         console.log(err);
       });
   }

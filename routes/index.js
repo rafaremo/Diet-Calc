@@ -125,7 +125,7 @@ router.post('/update-profile-pic/:id', isAuth, isValidated, uploadCloud.single('
   req.body.photoURL = req.file.url;
   User.findByIdAndUpdate(req.user._id, req.body, {new: true})
   .then(newUser=>{
-    res.redirect('/profile/' + req.user._id);
+    res.redirect('/profile');
   })
   .catch(e=>{res.send(e)});
 });
@@ -134,7 +134,7 @@ router.post('/update-profile-username/:id', isAuth, isValidated, (req,res)=>{
   req.body.username = req.body.usernameChange;
   User.findByIdAndUpdate(req.user._id, req.body, {new: true})
   .then(newUser=>{
-    res.redirect('/profile/' + req.user._id);
+    res.redirect('/profile');
   })
   .catch(e=>{res.send(e)});
 });
@@ -143,7 +143,7 @@ router.post('/update-profile-email/:id', isAuth, isValidated, (req,res)=>{
   req.body.email = req.body.emailChange;
   User.findByIdAndUpdate(req.user._id, req.body, {new: true})
   .then(newUser=>{
-    res.redirect('/profile/' + req.user._id);
+    res.redirect('/profile');
   })
   .catch(e=>{res.send(e)});
 });
