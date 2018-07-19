@@ -23,17 +23,19 @@
           <p {{#if notFacebook}}id="emailClick" {{/if}} class="editable">Correo: {{email}}</p>
         </div>
       </div>
-
     </div>
   </div>
             
-
-<ul class="collection with-header">
-  <li class="collection-header"><h4>Your diet lists</h4></li>
-    {{#each dietas}}
-        <li class="collection-item"><div>{{this.name}}<a href="results/{{this._id}}" class="secondary-content"><i class="material-icons">remove_red_eye</i></a></div></li>
-    {{/each}}
-</ul>
+  <div class="card">
+    <div class="card-content">
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Your diet lists</h4></li>
+          {{#each dietas}}
+              <li class="collection-item"><div>{{this.name}}<a href="results/{{this._id}}" class="secondary-content"><i class="material-icons">remove_red_eye</i></a></div></li>
+          {{/each}}
+      </ul>
+    </div>
+  </div>
 </div>
 
 <script>

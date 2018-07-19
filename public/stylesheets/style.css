@@ -2,6 +2,10 @@
 html, body {
   font-family: 'Quicksand', sans-serif; }
 
+.bg {
+  background: #ADE3A7 url("https://res.cloudinary.com/rafaremo/image/upload/v1532020171/6919186-nature-hd-vector.jpg") no-repeat center;
+  background-blend-mode: darken; }
+
 h1, h2, h3, h4, h5, h6 {
   color: #43a047; }
 
