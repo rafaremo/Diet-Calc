@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+$primary-color: #424242;
+$title-color: #43a047;
+$hover-color: #388e3c;
+
+html, body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $title-color;
+}
+
+.btn {
+  background-color: $title-color;
+}
+
+.btn:hover {
+  background-color: $hover-color;
+}
+
+nav {
+  background-color: $title-color;
+}
+
+p {
+  color: $primary-color;
+}
+
+#fotoClick:hover {
+  cursor: pointer;
+  background-color: rgba(255,255,255,1);
+  z-index: 20;
+}
+
+.click {
+  padding: 10px;
+  width: 100%;
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+  font-weight: bold;
+  position: absolute;
+  bottom: 5px;
+  z-index: 10;
+  text-align: center;
+}

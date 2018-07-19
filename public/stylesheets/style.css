@@ -1,2 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+html, body {
+  font-family: 'Quicksand', sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #43a047; }
+
+.btn {
+  background-color: #43a047; }
+
+.btn:hover {
+  background-color: #388e3c; }
+
+nav {
+  background-color: #43a047; }
+
+p {
+  color: #424242; }
+
+#fotoClick:hover {
+  cursor: pointer;
+  background-color: white;
+  z-index: 20; }
+
+.click {
+  padding: 10px;
+  width: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  position: absolute;
+  bottom: 5px;
+  z-index: 10;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
