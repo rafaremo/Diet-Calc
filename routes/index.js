@@ -7,6 +7,11 @@ const User    = require('../models/User');
 const Dieta   = require('../models/Dieta');
 const Food = require('../models/Food');
 
+//multer config
+const multer = require('multer');
+//cloudinary
+const uploadCloud = require('../helpers/cloudinary');
+
 //middlewares de autenticacion
 function isAuth(req,res,next){
   if(req.isAuthenticated()){
@@ -111,6 +116,15 @@ router.get('/profile/results/:id', isAuth, isValidated, (req,res)=>{
       res.render('diet-result', user)
     })
     .catch(err=>res.send(err));
-})
+});
+
+router.post('/update-profile/:id', isAuth, isValidated, uploadCloud.single('profilePic'), (req,res)=>{
+  req.body.photoURL = req.file.url;
+  User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+  .then(newUser=>{
+    res.redirect('/profile/' + req.user._id);
+  })
+  .catch(e=>{res.send(e)});
+});
 
 module.exports = router;
