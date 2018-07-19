@@ -6,6 +6,7 @@ const foods = require('../helpers/getFood');
 const User    = require('../models/User');
 const Dieta   = require('../models/Dieta');
 const Food = require('../models/Food');
+const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
 
 //multer config
 const multer = require('multer');
@@ -25,7 +26,8 @@ function isValidated(req,res,next){
   if(req.user.active){
     return next();
   } else {
-    res.render('verifica');
+    let us = req.user._id;
+    res.render('verifica', {us});
   }
 }
 
@@ -157,6 +159,15 @@ router.post('/update-dieta/:id', isAuth, isValidated, (req,res)=>{
 
 router.get('/politicas', (req,res)=>{
   res.render('politicas');
+});
+
+router.get('/resend/:id',isAuth, (req,res)=>{
+  User.findById(req.params.id)
+  .then(user=>{
+    sendWelcomeMail(user);
+    res.redirect('/');
+  })
+  .catch(e=>{res.send(e)});
 });
 
 module.exports = router;
