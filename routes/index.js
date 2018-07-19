@@ -35,12 +35,15 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/result', foods(), solver(), (req,res,next)=>{
+  if(req.body){
+    req.app.locals.datosFormulario = req.body;
+  }
   let objeto = {
     solution: req.solucion,
     dietFoods: req.rawFoods,
     datosInit: req.body,
     comidasDietaCompletas: []
-  }
+  };
   for (let comida in objeto.solution){
     objeto.dietFoods.forEach((comidaCompleta)=>{
       if (comidaCompleta.name === comida){

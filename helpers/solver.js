@@ -2,6 +2,9 @@ const solver = require("javascript-lp-solver");
 
 function solucionar() {
   return function(req, res, next) {
+    if (!req.body){
+      req.body = req.app.locals.datosFormulario;
+    }
     let multiply = 1;
     switch(req.body.objetivo){
       case 'perder':
