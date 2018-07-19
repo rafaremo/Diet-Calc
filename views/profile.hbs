@@ -2,7 +2,7 @@
   <div class="col s12 m7">
     <div class="card horizontal">
       <form action="/update-profile-pic/{{_id}}" method="POST" enctype="multipart/form-data" style="display:none;" id="form">
-        <input type="file" name="profilePic" id="file" onchange="submitForm('form')">
+        <input type="file" name="profilePic" id="file" onchange="submitForm('form', 'file')">
       </form>
 
       <div class="card-image" id="fotoClick">
