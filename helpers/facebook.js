@@ -10,7 +10,7 @@ passport.use(new FacebookStrategy({
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile)
-  User.findOrCreate({ username: profile.displayName, email: 'Sin email registrado', active: true }, function (err, user) {
+  User.findOrCreate({ username: profile.displayName, email: 'Sin email registrado', active: true, notFacebook: false }, function (err, user) {
     if (err) { return cb(err); }
     cb(null, user);
   });

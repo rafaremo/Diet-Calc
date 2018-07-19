@@ -26,7 +26,11 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  confirmationCode: String
+  confirmationCode: String,
+  notFacebook:{
+    type:Boolean,
+    default: true,
+  }
 },{
   timestamps:{
     createdAt:'created_at',
