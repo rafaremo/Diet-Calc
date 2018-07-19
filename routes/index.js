@@ -145,4 +145,8 @@ router.post('/update-profile-email/:id', isAuth, isValidated, (req,res)=>{
   .catch(e=>{res.send(e)});
 });
 
+router.get('/politicas', (req,res)=>{
+  res.render('politicas');
+});
+
 module.exports = router;
