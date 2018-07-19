@@ -6,6 +6,7 @@ const passport = require('passport');
 const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+const passportFacebook = require('../helpers/facebook');
 
 //middlewares de autenticacion
 function isAuth(req,res,next){
@@ -81,6 +82,16 @@ router.get('/logout', (req,res)=>{
   req.app.locals.user = null;
   res.redirect('/');
 });
+
+
+router.get ('/facebook', passportFacebook.authenticate('facebook'));
+
+router.get ('/facebook/callback', passportFacebook.authenticate('facebook', {failureRedirect: '/signup'}),
+function (req, res){
+  req.app.locals.user = req.user;
+  res.redirect(`/profile/${req.user.id}`);
+});
+
 
 
 module.exports = router;
