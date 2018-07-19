@@ -35,9 +35,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/result', foods(), solver(), (req,res,next)=>{
-  if(req.body){
-    req.app.locals.datosFormulario = req.body;
-  }
   let objeto = {
     solution: req.solucion,
     dietFoods: req.rawFoods,

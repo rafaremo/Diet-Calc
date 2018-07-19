@@ -89,8 +89,7 @@ router.get ('/facebook', passportFacebook.authenticate('facebook'));
 router.get ('/facebook/callback', passportFacebook.authenticate('facebook', {failureRedirect: '/signup'}),
 function (req, res){
   req.app.locals.user = req.user;
-  res.redirect('/result');
-  //res.redirect(`/profile/${req.user.id}`);
+  res.redirect(`/profile/${req.user.id}`);
 });
 
 
