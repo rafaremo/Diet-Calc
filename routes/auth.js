@@ -73,13 +73,12 @@ router.get('/login', isLoggedIn, (req,res)=>{
 router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login'
 }), (req,res,next)=>{
-  req.session.user = req.user;
+  req.app.locals.user = req.user;
   res.redirect('/')
 });
 
 router.get('/logout', (req,res)=>{
   req.logout();
-  req.session.user = null;
   res.redirect('/');
 });
 
@@ -88,8 +87,8 @@ router.get ('/facebook', passportFacebook.authenticate('facebook'));
 
 router.get ('/facebook/callback', passportFacebook.authenticate('facebook', {failureRedirect: '/signup'}),
 function (req, res){
-  req.session.user = req.user;
-  res.redirect(`/profile/${req.user.id}`);
+  req.app.locals.user = req.user;
+  res.redirect('/');
 });
 
 

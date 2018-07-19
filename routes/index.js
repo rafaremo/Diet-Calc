@@ -98,8 +98,8 @@ router.post('/save-result', isAuth, isValidated, (req,res,next)=>{
   .catch(err=>res.send(err));
 });
 
-router.get('/profile/:id', isAuth, isValidated, (req,res)=>{
-  User.findById(req.params.id)
+router.get('/profile', isAuth, isValidated, (req,res)=>{
+  User.findById(req.user._id)
   .populate('dietas')
   .then(user=>{
     res.render('profile', user)

@@ -16,8 +16,8 @@
           <a href="/" class="brand-logo">Diet Calc</a>
           <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            {{#if session.data.user}}
-            <li><a href="/profile/{{session.data.user._id}}">Profile</a></li>
+            {{#if user}}
+            <li><a href="/profile">Profile</a></li>
             <li><a href="/">Nueva Dieta</a></li>
             <li><a href="/logout">LogOut</a></li>
             {{else}}
@@ -34,11 +34,11 @@
           <div class="background">
             <img src="https://res.cloudinary.com/rafaremo/image/upload/v1531952903/fruit.jpg" alt="fruta">
           </div>
-          <a href="/profile/{{user._id}}"><img class="circle" src="{{user.photoURL}}"></a>
-          <a href="/profile/{{user._id}}"><span class="white-text name">{{user.username}}</span></a>
-          <a href="/profile/{{user._id}}"><span class="white-text email">{{user.email}}</span></a>
+          <a href="/profile"><img class="circle" src="{{user.photoURL}}"></a>
+          <a href="/profile"><span class="white-text name">{{user.username}}</span></a>
+          <a href="/profile"><span class="white-text email">{{user.email}}</span></a>
         </div></li>
-        <li><a href="/profile/{{user._id}}">Profile</a></li>
+        <li><a href="/profile">Profile</a></li>
         <li><a href="/">Nueva Dieta</a></li>
         <li><a href="/logout">LogOut</a></li>
         {{else}}
