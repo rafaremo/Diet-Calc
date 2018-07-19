@@ -6,7 +6,7 @@ require('dotenv').config();
 passport.use(new FacebookStrategy({
   clientID: process.env.FACECLIENTID,
   clientSecret: process.env.FACECLIENTSECRET,
-  callbackURL: "http://dietcalc.herokuapp.com/facebook/callback",
+  callbackURL: "https://dietcalc.herokuapp.com/facebook/callback",
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile)
