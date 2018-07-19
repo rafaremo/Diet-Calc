@@ -17,7 +17,7 @@ exports.sendWelcomeMail = (user)=>{
     subject: 'Verifica tu Cuenta de Diet Calc', 
     //text: `Hola ${user.username}, bienvenido a nuestra Iron App`,
     html: `<h1>Bienvenido a Diet Calc</h1>
-    <p>Hola ${user.username}, porfavor verifica tu cuenta haciendo click <a href="http://localhost:3000/confirm/${user.confirmationCode}">aquí</a></p>
+    <p>Hola ${user.username}, porfavor verifica tu cuenta haciendo click <a href="http://dietcalc.herokuapp.com/confirm/${user.confirmationCode}">aquí</a></p>
     `
   }
   transporter.sendMail(data)
