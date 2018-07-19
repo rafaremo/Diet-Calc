@@ -15,17 +15,17 @@
         </h4>
       </li>
       <li>
-        <h5 style="padding:0 20px">
-        Proteína: 
-          <div class="right-align">{{dietInfo.gP}} gramos</div>
+        <h5 style="padding:0 20px" class="row">
+        <span class="col s12 m6">Proteína:</span> 
+          <span class="col s12 m6 right-align">{{dietInfo.gP}} gramos</div>
         </h5>
-        <h5 style="padding:0 20px">
-        Carbohidratos: 
-          <div class="right-align">{{dietInfo.gC}} gramos</div>
+        <h5 style="padding:0 20px" class="row">
+        <span class="col s12 m6">Carbohidratos:</span> 
+          <div class="col s12 m6 right-align">{{dietInfo.gC}} gramos</div>
         </h5>
-        <h5 style="padding:0 20px">
-        Grasa: 
-          <div class="right-align">{{dietInfo.gG}} gramos</div>
+        <h5 style="padding:0 20px" class="row">
+        <span class="col s12 m6">Grasa:</span> 
+          <div class="col s12 m6 right-align">{{dietInfo.gG}} gramos</div>
         </h5>
       </li>
       <li class="collection-header" style="border-top:1px solid lightgray">
@@ -34,10 +34,12 @@
         </h4>
       </li>
       {{#each comidas}}
-        <li class="collection-item">
-          {{this.food.name}}
-          <div class="right-align">{{this.quantity}} {{this.food.serving.unit}}(s)</div>
-        </li>
+        <div class="row">
+          <li class="collection-item">
+           <span class="col s12 m6">{{this.food.name}}</span>
+            <div class="col s12 m6 right-align">{{this.quantity}} {{this.food.serving.unit}}(s)</div>
+          </li>
+        </div>
       {{/each}}
     </ul>
   </div>
