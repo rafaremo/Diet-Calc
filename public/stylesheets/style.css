@@ -38,4 +38,7 @@ p {
   height: 15vh;
   margin-top: 8vh; }
 
+.editable:hover {
+  cursor: pointer; }
+
 /*# sourceMappingURL=style.css.map */
