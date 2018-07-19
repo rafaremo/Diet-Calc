@@ -68,7 +68,8 @@ router.post('/save-result', isAuth, isValidated, (req,res,next)=>{
       peso: req.body.peso,
       altura: req.body.altura,
       sexo: req.body.sexo,
-      activity: req.body.actividad
+      activity: req.body.actividad,
+      objetivo: req.body.objetivo
     }
   }
   Dieta.create(dietaModel)

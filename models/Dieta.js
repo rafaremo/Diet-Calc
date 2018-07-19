@@ -31,7 +31,8 @@ const dietaSchema = new Schema({
     peso: Number,
     altura: Number,
     sexo: String,
-    activity: Number
+    activity: Number,
+    objetivo: String
   }
 },{
   timestamps:{
