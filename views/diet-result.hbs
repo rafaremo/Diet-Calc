@@ -2,47 +2,42 @@
   <div class="col s12 m7">
     <div class="card">
       <div class="card-content">
-        <h1>Dieta {{name}} de {{usuario.username}}</h1>
-
+        <h2>Dieta {{name}} de {{usuario.username}}</h2>
         <ul class="collection with-header">
           <li class="collection-header">
             <h4 class="row">
               <span class="col s12 m6">Tu meta calorica:</span>
-              <span class="col s12 m6 right-align">{{dietInfo.bmr}}</span>
+              <span class="col s12 m6 right-align">{{dietInfo.bmr}} kCal</span>
             </h4>
           </li>
           <li class="collection-header">
-            <h4>
-            Distribución de tus macros:
-            </h4>
+            <h4>Distribución de tus macros:</h4>
           </li>
-          <li>
-            <h5 style="padding:0 20px" class="row">
-            <span class="col s12 m6">Proteína:</span> 
-              <span class="col s12 m6 right-align">{{dietInfo.gP}} gramos</div>
-            </h5>
-            <h5 style="padding:0 20px" class="row">
-            <span class="col s12 m6">Carbohidratos:</span> 
-              <div class="col s12 m6 right-align">{{dietInfo.gC}} gramos</div>
-            </h5>
-            <h5 style="padding:0 20px" class="row">
-            <span class="col s12 m6">Grasa:</span> 
-              <div class="col s12 m6 right-align">{{dietInfo.gG}} gramos</div>
-            </h5>
+          <li class="collection-item">
+            <p class="row">
+              <span class="col s12 m6">Proteína:</span> 
+              <span class="col s12 m6 right-align">{{dietInfo.gP}} g(s)</span>
+            </p>
+            <p class="row">
+              <span class="col s12 m6">Carbohidratos:</span> 
+              <span class="col s12 m6 right-align">{{dietInfo.gC}} g(s)</span>
+            </p>
+            <p class="row">
+              <span class="col s12 m6">Grasa:</span> 
+              <span class="col s12 m6 right-align">{{dietInfo.gG}} g(s)</span>
+            </p>
           </li>
-          <li class="collection-header" style="border-top:1px solid lightgray">
-            <h4>
-            Alimentos diarios:
-            </h4>
+          <li class="collection-header">
+            <h4>Alimentos diarios:</h4>
           </li>
+          <li class="collection-item">
           {{#each comidas}}
-            <div class="row">
-              <li class="collection-item">
-              <span class="col s12 m6">{{this.food.name}}</span>
-                <div class="col s12 m6 right-align">{{this.quantity}} {{this.food.serving.unit}}(s)</div>
-              </li>
-            </div>
+            <p class="row">
+              <span class="col s12 m6">{{this.food.name}}:</span>
+              <span class="col s12 m6 right-align">{{this.quantity}} {{this.food.serving.unit}}(s)</span>
+            </p>
           {{/each}}
+          </li>
         </ul>
       </div>
     </div>

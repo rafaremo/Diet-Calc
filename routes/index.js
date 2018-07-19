@@ -58,10 +58,10 @@ router.post('/save-result', isAuth, isValidated, (req,res,next)=>{
     usuario: req.user._id,
     comidas: [],
     dietInfo: {
-      bmr: req.body.bmr,
-      gP: req.body.gP,
-      gC: req.body.gC,
-      gG: req.body.gG
+      bmr: Math.floor(req.body.bmr*100)/100,
+      gP: Math.floor(req.body.gP*100)/100,
+      gC: Math.floor(req.body.gC*100)/100,
+      gG: Math.floor(req.body.gG*100)/100
     },
     inputInfo: {
       edad: req.body.edad,
@@ -77,7 +77,7 @@ router.post('/save-result', isAuth, isValidated, (req,res,next)=>{
       Food.find({name: key})
       .then(comida=>{
         let objeto = {
-          quantity: req.body.food[key],
+          quantity: Math.floor(req.body.food[key]*100)/100,
           food: comida[0]._id
         }
         return Dieta.findByIdAndUpdate(dieta._id, {$push: {comidas:objeto}}, {new: true});
