@@ -16,8 +16,8 @@
           <a href="/" class="brand-logo">Diet Calc</a>
           <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            {{#if user}}
-            <li><a href="/profile/{{user._id}}">Profile</a></li>
+            {{#if session.data.user}}
+            <li><a href="/profile/{{session.data.user._id}}">Profile</a></li>
             <li><a href="/">Nueva Dieta</a></li>
             <li><a href="/logout">LogOut</a></li>
             {{else}}
