@@ -42,7 +42,12 @@ p {
   height: 15vh;
   margin-top: 8vh; }
 
+.editable {
+  transition: transform .2s; }
+
 .editable:hover {
-  cursor: pointer; }
+  cursor: pointer;
+  color: #424242;
+  transform: translate(5px, 5px); }
 
 /*# sourceMappingURL=style.css.map */

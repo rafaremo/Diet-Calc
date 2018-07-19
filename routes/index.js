@@ -145,6 +145,15 @@ router.post('/update-profile-email/:id', isAuth, isValidated, (req,res)=>{
   .catch(e=>{res.send(e)});
 });
 
+router.post('/update-dieta/:id', isAuth, isValidated, (req,res)=>{
+  req.body.name = req.body.dietChange;
+  Dieta.findByIdAndUpdate(req.params.id, req.body, {new:true})
+  .then(newDieta=>{
+    res.redirect('/profile/results/' + req.params.id);
+  })
+  .catch(e=>{res.send(e)});
+});
+
 router.get('/politicas', (req,res)=>{
   res.render('politicas');
 });

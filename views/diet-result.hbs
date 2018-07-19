@@ -2,7 +2,10 @@
   <div class="col s12 m7">
     <div class="card">
       <div class="card-content">
-        <h2>Dieta {{name}} de {{usuario.username}}</h2>
+        <form action="/update-dieta/{{_id}}" validate method="POST" style="display:none;" id="formDiet">
+          <input type="text" name="dietChange" id="dietChange" onchange="submitForm('formDiet', 'dietChange')" value="{{name}}" required>
+        </form>
+        <h2 id="changeName" class="editable">Dieta {{name}} de {{usuario.username}} <i class="material-icons">create</i></h2>
         <ul class="collection with-header">
           <li class="collection-header">
             <h4 class="row">
@@ -43,3 +46,17 @@
     </div>
   </div>
 </div>
+
+<script>
+   document.getElementById('changeName').addEventListener('click', function(){
+    let dietIn = document.getElementById('formDiet')
+    dietIn.style.display='inherit';
+    document.getElementById('changeName').style.display='none'
+  });
+  
+
+  function submitForm(id, idInput){
+    if(document.getElementById(idInput).value === "")return;
+    document.getElementById(id).submit();
+  }
+</script>

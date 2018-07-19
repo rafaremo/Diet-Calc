@@ -14,13 +14,13 @@
           <form action="/update-profile-username/{{_id}}" validate method="POST" style="display:none;" id="formUser">
             <input type="text" name="usernameChange" id="usernameChange" onchange="submitForm('formUser', 'usernameChange')" value="{{username}}" required>
           </form>
-          <h3 {{#if notFacebook}}id="userClick"{{/if}} class="editable">Usuario: {{username}}</h3>
+          <h3 {{#if notFacebook}}id="userClick"{{/if}} class="editable">Usuario: {{username}} <i class="material-icons">create</i></h3>
         </div>
         <div class="card-action">
           <form action="/update-profile-email/{{_id}}" validate method="POST" style="display:none;" id="formEmail">
             <input type="email" name="emailChange" id="emailChange" onchange="submitForm('formEmail', 'emailChange')" value="{{email}}" required>
           </form>
-          <p {{#if notFacebook}}id="emailClick" {{/if}} class="editable">Correo: {{email}}</p>
+          <p {{#if notFacebook}}id="emailClick" {{/if}} class="editable">Correo: {{email}} <i class="material-icons" style="font-size: 1em">create</i></p>
         </div>
       </div>
     </div>
