@@ -16,7 +16,11 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #388e3c; }
 
 nav {
-  background-color: #43a047; }
+  background-color: #fff; }
+  nav div a, nav div .brand-logo {
+    color: #f15a29; }
+  nav .logo-img {
+    height: 60px; }
 
 p {
   color: #424242; }

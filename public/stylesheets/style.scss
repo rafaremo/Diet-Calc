@@ -2,6 +2,7 @@
 $primary-color: #424242;
 $title-color: #43a047;
 $hover-color: #388e3c;
+$logo-color: #f15a29;
 
 html, body {
   font-family: 'Quicksand', sans-serif;
@@ -25,7 +26,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-  background-color: $title-color;
+  background-color: #fff;
+  div a, div .brand-logo {
+    color: $logo-color;
+  }
+  .logo-img {
+    height: 60px;
+  }
 }
 
 p {
